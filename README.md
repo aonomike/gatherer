@@ -1,7 +1,6 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+I am reading the book Rails 5 test prescriptions. This code base is the implementation of the book project
 
 Things you may want to cover:
 
