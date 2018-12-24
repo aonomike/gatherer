@@ -2,7 +2,7 @@ class Project < ApplicationRecord
   has_many :tasks, dependent: :destroy
 
   def incomplete_tasks
-    @tasks.reject(&:complete?)
+    tasks.reject(&:complete?)
   end
 
   def done?

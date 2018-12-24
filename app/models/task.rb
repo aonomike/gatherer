@@ -15,6 +15,6 @@ class Task < ApplicationRecord
   end
 
   def points_toward_velocity
-    part_of_velocity? ? @size :0
+    part_of_velocity? ? size : 0
   end
 end
