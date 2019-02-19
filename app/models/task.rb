@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 class Task < ApplicationRecord
   belongs_to :project
-  
-  def mark_completed( date = Time.current )
+
+  def mark_completed(date = Time.current)
     self.completed_at = date
   end
 
@@ -11,6 +13,7 @@ class Task < ApplicationRecord
 
   def part_of_velocity?
     return false unless complete?
+
     completed_at > Project.velocity_length_in_days.days.ago
   end
 

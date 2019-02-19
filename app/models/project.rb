@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Project < ApplicationRecord
   has_many :tasks, dependent: :destroy
 
@@ -22,11 +24,11 @@ class Project < ApplicationRecord
   end
 
   def current_rate
-    completed_velocity * 1.0/Project.velocity_length_in_days
+    completed_velocity * 1.0 / Project.velocity_length_in_days
   end
 
   def projected_days_remaining
-    remaining_size/current_rate
+    remaining_size / current_rate
   end
 
   def on_schedule?
@@ -35,6 +37,7 @@ class Project < ApplicationRecord
 
   def on_schedule?
     return false if projected_days_remaining.nan?
+
     (Time.zone.today + projected_days_remaining) <= due_date
   end
 
